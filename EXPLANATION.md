@@ -22,14 +22,14 @@ Lastly, I would do some more tests for edge cases and proper error handling in e
 
 ### Time Complexity
 
-getEmployee (helper function) = O(n) - Recursively traverses the tree, worst case the employee is at the bottom of the tree which would require n traversals (where n is the number of nodes / employees in the tree)
-generateCompanyStructure = O(n^2) - Loops over the employees and for each employee, does a recursive check to find the boss
-hireEmployee = O(n) - similar to getEmployee as we recurse over the tree until we find the boss node and then simply append the new employee (constant time) 
-fireEmployee = O(3n) - Calls getEmployee and getBoss individually. There is some loops / filtering in the body of the function, but it is independant of the input size so complexity is still linear.
-promoteEmployee = O(4n) - Calls getEmployee, getBoss, and getSubordinates twice
-demoteEmployee = O(4n) - Calls getEmployee twice, and getSubordinates twice
-getBoss = O(2n) - Calls getEmployee twice (not nested), thus still O(n)
-getSubordinates = O(n) - Calls getEmployee to find the corresponding node and returns the descendants (constant time operation), thus still O(n)
+* getEmployee (helper function) = O(n) - Recursively traverses the tree, worst case the employee is at the bottom of the tree which would require n traversals (where n is the number of nodes / employees in the tree)
+* generateCompanyStructure = O(n^2) - Loops over the employees and for each employee, does a recursive check to find the boss
+* hireEmployee = O(n) - similar to getEmployee as we recurse over the tree until we find the boss node and then simply append the new employee (constant time) 
+* fireEmployee = O(3n) - Calls getEmployee and getBoss individually. There is some loops / filtering in the body of the function, but it is independant of the input size so complexity is still linear.
+* promoteEmployee = O(4n) - Calls getEmployee, getBoss, and getSubordinates twice
+* demoteEmployee = O(4n) - Calls getEmployee twice, and getSubordinates twice
+* getBoss = O(2n) - Calls getEmployee twice (not nested), thus still O(n)
+* getSubordinates = O(n) - Calls getEmployee to find the corresponding node and returns the descendants (constant time operation), thus still O(n)
 
 In summary, most of the functions are running in linear time except for generateCompanyStructure as we have a nested loop (quadratic time). As mentioned above, this could be improved by using some form of memoization or data structure with constant insert/search such as a map.
 
